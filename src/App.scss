@@ -1,13 +1,14 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@500&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Fira+Code:wght@500&display=swap");
 
 @import "~antd/dist/antd.css";
 
 @font-face {
-  font-family: 'Renogare Soft Regular';
+  font-family: "Renogare Soft Regular";
   font-style: normal;
   font-weight: normal;
-  src: local('Renogare Soft Regular'), url(./fonts/RenogareSoft-Regular.woff) format('woff');
+  src: local("Renogare Soft Regular"),
+    url(./fonts/RenogareSoft-Regular.woff) format("woff");
 }
 
 $background: #fafafa;
@@ -17,17 +18,15 @@ $greylink: #999999;
 $darkestgrey: #555555;
 $blackish: #333333;
 
-$brightgreen: #00FB89;
-$greentxt: #20F092;
+$brightgreen: #00fb89;
+$greentxt: #20f092;
 $tellor-green: #2dfc9f;
-
 
 /* gradient mixins */
 @mixin greenshine {
   background: $tellor-green;
   background: linear-gradient(90deg, #2dfc9f 0%, #00fb89 100%);
 }
-
 
 /* font mixins */
 @mixin tenpxfont {
@@ -99,11 +98,11 @@ $tellor-green: #2dfc9f;
 }
 
 @mixin font {
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
 }
 
 @mixin greybg {
-  background: url('../src/imgs/bg_grey.png');
+  background: url("../src/imgs/bg_grey.png");
 }
 
 @mixin flexrow {
@@ -117,13 +116,10 @@ $tellor-green: #2dfc9f;
 }
 
 @mixin lightshadow {
-  -webkit-box-shadow: 0px 8px 16px 0px rgba(100,117,155,0.1);
-  -moz-box-shadow: 0px 8px 16px 0px rgba(100,117,155,0.1);
-  box-shadow: 0px 8px 16px 0px rgba(100,117,155,0.1);
+  -webkit-box-shadow: 0px 8px 16px 0px rgba(100, 117, 155, 0.1);
+  -moz-box-shadow: 0px 8px 16px 0px rgba(100, 117, 155, 0.1);
+  box-shadow: 0px 8px 16px 0px rgba(100, 117, 155, 0.1);
 }
-
-
-
 
 /* Specifics */
 .App {
@@ -141,8 +137,6 @@ h2 {
   font-weight: 300;
   color: $blackish;
 }
-
-
 
 // --- Ant D Overrides ---
 
@@ -258,6 +252,27 @@ h2 {
 .ant-tooltip {
   display: none;
 }
+.ant-table-filter-trigger.active {
+  color: $darkestgrey;
+}
+.ant-table-filter-dropdown {
+  font-family: "Roboto";
+}
+.ant-dropdown-menu-item {
+  @include eighteenpxfont();
+  font-weight: 300;
+}
+.ant-dropdown-menu-item-selected {
+  color: $darkestgrey;
+  background-color: #e5e5e5;
+}
+.ant-checkbox-checked .ant-checkbox-inner {
+  background-color: $darkestgrey;
+  border-color: $darkestgrey;
+}
+.ant-btn-sm {
+  margin: 5px;
+}
 
 .ant-btn-lg {
   @include font;
@@ -277,26 +292,42 @@ button {
 }
 
 button:hover {
-  transform: scale(0.98,0.98);
+  transform: scale(0.98, 0.98);
 }
 
 button[disabled]:hover {
   transform: none;
 }
 
-.greenbtn, .greenbtn:hover, .greenbtn:active {
+.greenbtn,
+.greenbtn:hover,
+.greenbtn:active {
   color: $darkestgrey !important;
-  background: rgb(45,252,159) !important;
-  background: linear-gradient(90deg, rgba(45,252,159,1) 0%, rgba(64,249,165,1) 28%, rgba(30,250,150,1) 64%, rgba(0,251,137,1) 100%) !important;
+  background: rgb(45, 252, 159) !important;
+  background: linear-gradient(
+    90deg,
+    rgba(45, 252, 159, 1) 0%,
+    rgba(64, 249, 165, 1) 28%,
+    rgba(30, 250, 150, 1) 64%,
+    rgba(0, 251, 137, 1) 100%
+  ) !important;
 }
 
-.whitebtn, .whitebtn:hover, .whitebtn:active {
+.whitebtn,
+.whitebtn:hover,
+.whitebtn:active {
   color: $darkestgrey !important;
-  background: rgb(255,255,255) !important;
-  background: linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(252,252,252,1) 100%) !important;
+  background: rgb(255, 255, 255) !important;
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 1) 0%,
+    rgba(252, 252, 252, 1) 100%
+  ) !important;
 }
 
-.greybtn, .greybtn:hover, .greybtn:active {
+.greybtn,
+.greybtn:hover,
+.greybtn:active {
   color: white !important;
   background: #333333 !important;
 }
@@ -314,7 +345,6 @@ a.txtlink {
   font-weight: 300;
 }
 
-
 .contentSection {
   @include flexcolumn;
   align-items: flex-start;
@@ -327,7 +357,6 @@ a.txtlink {
 .contentTxt {
   width: 100%;
   max-width: 836px;
-
 }
 
 .contentTxt h2 {
@@ -350,14 +379,14 @@ a.txtlink {
 }
 
 .contentTxt p {
-  color:#707070;
+  color: #707070;
   font-weight: 300;
   font-size: 1.25rem;
   line-height: 1.875rem;
   margin: 0 0 50px 0 !important;
 }
 .contentTxt a {
-  color:#707070;
+  color: #707070;
   font-weight: 300;
   font-size: 1.25rem;
   line-height: 1.875rem;
@@ -375,19 +404,17 @@ a.txtlink {
   color: $blackish;
 }
 
-
-
 /* QUERIES */
 
 /* Mobile */
-@media only screen and (max-width : 480px) {
+@media only screen and (max-width: 480px) {
   h2 {
     @include font;
     font-size: 1.375rem;
     line-height: 1.875rem;
     font-weight: 300;
     color: $darkestgrey;
-  }  
+  }
   .ant-btn-lg {
     font-size: 1rem !important;
     padding: 20px 40px 19px 40px !important;
@@ -406,38 +433,37 @@ a.txtlink {
   }
 
   .contentTxt p {
-      font-size: 1rem;
-      line-height: 1.375rem;
-      margin: 0 0 30px 0;
+    font-size: 1rem;
+    line-height: 1.375rem;
+    margin: 0 0 30px 0;
   }
   .contentTxt .extramarginleft {
     padding: 0;
   }
-
 }
 
-@media only screen and (min-width: 480px) and (max-width: 900px){
+@media only screen and (min-width: 480px) and (max-width: 900px) {
   h2 {
     @include font;
     font-size: 1.75rem;
     line-height: 2.5rem;
     font-weight: 300;
     color: $darkestgrey;
-  }  
+  }
   .contentSection {
     padding: 20px 80px 0 80px;
   }
 
   .contentTxt p {
     margin: 0 0 40px 0 !important;
-}
+  }
 
   .contentTxt .extramarginleft {
     padding: 0;
   }
 }
 
-@media only screen and (min-width: 1500px){
+@media only screen and (min-width: 1500px) {
   h2 {
     font-size: 1.875rem;
     line-height: 2.625rem;
