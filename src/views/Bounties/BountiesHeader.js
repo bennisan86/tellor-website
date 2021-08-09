@@ -5,8 +5,8 @@ import { Button, Collapse } from "antd";
 function BountiesHeader({ rawData }) {
   const [tellorBountiesAvailableData, setTellorBountiesAvailableData] =
     useState();
-  const [showPanel,toggleShowPanel] = useState(false);
-  
+  const [showPanel, toggleShowPanel] = useState(false);
+
   //Panel instantiation
   const { Panel } = Collapse;
 
@@ -20,15 +20,15 @@ function BountiesHeader({ rawData }) {
       });
   }, [rawData]);
 
-//   const toggleShowPanel = () => {
-//     if (changePanelKey === "0") {
-//       setChangePanelKey("1");
-//       setChangeButtonText(!changeButtonText);
-//     } else if (changePanelKey === "1") {
-//       setChangePanelKey("0");
-//       setChangeButtonText(!changeButtonText);
-//     }
-//   };
+  //   const toggleShowPanel = () => {
+  //     if (changePanelKey === "0") {
+  //       setChangePanelKey("1");
+  //       setChangeButtonText(!changeButtonText);
+  //     } else if (changePanelKey === "1") {
+  //       setChangePanelKey("0");
+  //       setChangeButtonText(!changeButtonText);
+  //     }
+  //   };
 
   return (
     <>
@@ -39,23 +39,28 @@ function BountiesHeader({ rawData }) {
             tellorBountiesAvailableData
               ? tellorBountiesAvailableData.tributes + " USD"
               : "Loading..."
-          }`}</h3></div>
-          <div className="headerGroundRules">
-            <p>
-              The Tellor Bounties program is a way to reward developers who help
-              us build out Tellor. <br /> We have a dev fund that's for
-              developing Tellor and we plan to use it!
-            </p>
-            <Button id="openPanelButton" onClick={() => toggleShowPanel(!showPanel)}>
-              {showPanel ? "Read Ground Rules" : "Hide Ground Rules"}
-            </Button>
-          </div>
+          }`}</h3>
+        </div>
+        <div className="headerGroundRules">
+          <p>
+            The Tellor Bounties program is a way to reward developers who help
+            us build out Tellor. <br /> We have a dev fund that's for developing
+            Tellor and we plan to use it!
+          </p>
+          <Button
+            id="openPanelButton"
+            onClick={() => toggleShowPanel(!showPanel)}
+          >
+            {showPanel ? "Hide Ground Rules" : "Read Ground Rules"}
+          </Button>
+        </div>
       </div>
 
       <section className="panel">
         <Collapse
-            defaultActiveKey={["0"]}
-            activeKey={showPanel?["1"]:["0"]}>
+          defaultActiveKey={["0"]}
+          activeKey={showPanel ? ["1"] : ["0"]}
+        >
           <Panel key={"1"}>
             <div className="groundRules">
               <div className="panelRowsSpecial">
@@ -103,7 +108,10 @@ function BountiesHeader({ rawData }) {
                   are subject to change given price changes.
                 </p>
               </div>
-              <p className="panelClose" onClick={() => toggleShowPanel(!showPanel)}>
+              <p
+                className="panelClose"
+                onClick={() => toggleShowPanel(!showPanel)}
+              >
                 close ground rules
               </p>
             </div>

@@ -92,7 +92,7 @@ function ClaimModal({ jobForm }) {
       { method: "POST" }
     );
 
-    //Setting formValues back to normal and closing the modal
+    //Setting formValues back to normal
     setFormValues(initialFormValues);
   };
 
