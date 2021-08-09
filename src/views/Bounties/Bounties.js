@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "./Bounties.scss";
 import Icons from "../../Icons";
-import { useMediaQuery } from 'react-responsive';
+import { useMediaQuery } from "react-responsive";
 
 //Ant D imports
 import { Button, Table, Collapse } from "antd";
@@ -11,7 +11,6 @@ import BountiesHeader from "./BountiesHeader.js";
 import ClaimModal from "./ClaimModal.js";
 
 const { Panel } = Collapse;
-
 
 function Bounties() {
   let initialJobForm = {
@@ -23,8 +22,7 @@ function Bounties() {
   const [bountiesData, setBountiesData] = useState();
   const [jobForm, setJobForm] = useState(initialJobForm);
   const [claimerPanels, setPanelsArr] = useState([]);
-  const [buttonText, toggleButtonText] = useState(true);
-  const isMobile = useMediaQuery({query: '(max-width: 810px)'})
+  const isMobile = useMediaQuery({ query: "(max-width: 810px)" });
 
   //useEffect to populate the table with data from the Sheety API
   useEffect(() => {
@@ -103,7 +101,7 @@ function Bounties() {
         if (tributes === "Various") {
           return tributes;
         } else {
-          return tributes+" TRB";
+          return tributes + " TRB";
         }
       },
     },
@@ -128,7 +126,7 @@ function Bounties() {
         if (tributes === "Various") {
           return tributes;
         } else {
-          return tributes+" TRB";
+          return tributes + " TRB";
         }
       },
     },
@@ -140,11 +138,9 @@ function Bounties() {
       const index = arr.indexOf(e);
       if (index > -1) {
         arr.splice(index, 1);
-        toggleButtonText(!buttonText);
       }
     } else {
       arr.push(e);
-      toggleButtonText(!buttonText);
     }
     setPanelsArr(arr);
   };
@@ -155,7 +151,7 @@ function Bounties() {
         <BountiesHeader rawData={rawData} />
         <Table
           pagination={false}
-          columns={isMobile?columns_mobile:columns}
+          columns={isMobile ? columns_mobile : columns}
           onRow={(record) => {
             return {
               onClick: () => {
@@ -201,7 +197,7 @@ function Bounties() {
                     id="claimModalButton"
                     onClick={() => addtoClaimerPanels(i)}
                   >
-                    {buttonText ? "Claim this bounty" : "Close"}
+                    {claimerPanels.includes(i) ? "Close" : "Claim this bounty"}
                   </Button>
                 </div>
 
@@ -229,17 +225,17 @@ function Bounties() {
       <section className="ButtonSection">
         <p className="smoltxt">Want to talk about bounties?</p>
         <div className="two_btns">
-        <a href="mailto:nfett@tellor.io" alt="Mail Nick">
-          <Button shape="round" size="large" className="whitebtn">
-          Mail to nfett@tellor.io
-          </Button>
-        </a>
-        <a href="https://t.me/tellor" alt="Tellor on Telegram">
-          <Button shape="round" size="large" className="whitebtn">
-            <Icons.Telegram fill="#555555" />
-            @the_fett on Telegram
-          </Button>
-        </a>
+          <a href="mailto:nfett@tellor.io" alt="Mail Nick">
+            <Button shape="round" size="large" className="whitebtn">
+              Mail to nfett@tellor.io
+            </Button>
+          </a>
+          <a href="https://t.me/tellor" alt="Tellor on Telegram">
+            <Button shape="round" size="large" className="whitebtn">
+              <Icons.Telegram fill="#555555" />
+              @the_fett on Telegram
+            </Button>
+          </a>
         </div>
       </section>
     </div>
